@@ -1,0 +1,42 @@
+[
+  {
+    "rule_id": "ESC-01",
+    "field": "temperature_c",
+    "operator": ">=",
+    "threshold": 38.5,
+    "severity": "high",
+    "message": "Temperature meets supplied threshold. Verify and follow approved escalation process."
+  },
+  {
+    "rule_id": "ESC-02",
+    "field": "heart_rate_bpm",
+    "operator": ">=",
+    "threshold": 120,
+    "severity": "high",
+    "message": "Heart rate meets supplied threshold. Verify and follow approved escalation process."
+  },
+  {
+    "rule_id": "ESC-03",
+    "field": "spo2_percent",
+    "operator": "<=",
+    "threshold": 90,
+    "severity": "critical",
+    "message": "SpO2 meets supplied threshold. Verify immediately and follow approved escalation process."
+  },
+  {
+    "rule_id": "ESC-04",
+    "field": "systolic_bp",
+    "operator": "<=",
+    "threshold": 90,
+    "severity": "critical",
+    "message": "Systolic BP meets supplied threshold. Verify immediately and follow approved escalation process."
+  },
+  {
+    "rule_id": "ESC-05",
+    "field": "resp_rate_min",
+    "operator": ">=",
+    "threshold": 25,
+    "severity": "high",
+    "message": "Respiratory rate meets supplied threshold. Verify and follow approved escalation process."
+  }
+]
