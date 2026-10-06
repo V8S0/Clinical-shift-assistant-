@@ -1,0 +1,10 @@
+{
+  "patient_id": "PAT-2006",
+  "display_name": "Patient F",
+  "age": 40,
+  "ward": "Ward 2",
+  "bed": "2F",
+  "admission_reason": "Synthetic test admission",
+  "allergies": "None recorded",
+  "care_notes": "Imported test record."
+}

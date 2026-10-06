@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Clinical Shift Assistant</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-card {
+            background: white;
+            width: 360px;
+            padding: 32px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        h1 {
+            margin-top: 0;
+            font-size: 24px;
+        }
+
+        .subtitle {
+            color: #555;
+            margin-bottom: 24px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 11px;
+            margin-bottom: 16px;
+            border: 1px solid #bbb;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            background: #0b5ed7;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            background: #8aaee8;
+            cursor: not-allowed;
+        }
+
+        .message {
+            margin-top: 16px;
+            padding: 10px;
+            border-radius: 6px;
+            display: none;
+        }
+
+        .error {
+            display: block;
+            background: #fde8e8;
+            color: #9b1c1c;
+        }
+
+        .success {
+            display: block;
+            background: #e6f7ed;
+            color: #176b3a;
+        }
+
+        .safety-notice {
+            margin-top: 22px;
+            font-size: 12px;
+            color: #666;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-card">
+        <h1>AI Clinical Shift Assistant</h1>
+
+        <p class="subtitle">
+            Sign in using the predefined nurse demo account.
+        </p>
+
+        <form id="loginForm">
+            <label for="username">Username</label>
+            <input
+                id="username"
+                type="text"
+                value="nurse"
+                required
+            >
+
+            <label for="password">Password</label>
+            <input
+                id="password"
+                type="password"
+                value="Nurse123!"
+                required
+            >
+
+            <button id="loginButton" type="submit">
+                Log in
+            </button>
+        </form>
+
+        <div id="message" class="message"></div>
+
+        <div class="safety-notice">
+            Synthetic-data prototype. Verify all information using approved
+            clinical systems and processes. This tool does not provide
+            diagnosis, treatment or medication advice.
+        </div>
+    </div>
+
+    <script>
+        const API_BASE_URL = "http://127.0.0.1:8000";
+
+        const loginForm = document.getElementById("loginForm");
+        const loginButton = document.getElementById("loginButton");
+        const message = document.getElementById("message");
+
+        loginForm.addEventListener("submit", async (event) => {
+            event.preventDefault();
+
+            loginButton.disabled = true;
+            loginButton.textContent = "Logging in...";
+
+            message.className = "message";
+            message.textContent = "";
+
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/login`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        username,
+                        password
+                    })
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(
+                        data.detail || "Login failed."
+                    );
+                }
+
+                localStorage.setItem(
+                    "access_token",
+                    data.access_token
+                );
+
+                message.className = "message success";
+                message.textContent = "Login successful.";
+
+                window.location.href = "dashboard.html";
+            } catch (error) {
+                message.className = "message error";
+                message.textContent = error.message;
+            } finally {
+                loginButton.disabled = false;
+                loginButton.textContent = "Log in";
+            }
+        });
+    </script>
+</body>
+</html>
