@@ -1,6 +1,0 @@
-task_id,patient_id,task,due_at,status
-TSK-21,PAT-2001,Assist with scheduled mobility,2026-07-19T08:00:00+03:00,open
-TSK-22,PAT-2002,Repeat observations and escalate according to approved process,2026-07-19T06:30:00+03:00,open
-TSK-23,PAT-2003,Verify allergy documentation during handover,2026-07-19T07:15:00+03:00,open
-TSK-24,PAT-2004,Complete routine observation round,2026-07-19T09:00:00+03:00,open
-TSK-25,PAT-2005,Record fluid balance total,2026-07-19T07:30:00+03:00,open

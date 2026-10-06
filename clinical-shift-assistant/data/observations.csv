@@ -1,7 +1,0 @@
-observation_id,patient_id,observed_at,heart_rate_bpm,systolic_bp,diastolic_bp,resp_rate_min,spo2_percent,temperature_c,consciousness
-OBS-201,PAT-2001,2026-07-19T05:30:00+03:00,88,124,76,18,97,37.1,Alert
-OBS-202,PAT-2002,2026-07-19T04:30:00+03:00,96,118,70,22,94,37.4,Alert
-OBS-204,PAT-2002,2026-07-19T06:15:00+03:00,104,110,68,26,89,37.6,Alert
-OBS-205,PAT-2003,2026-07-19T06:00:00+03:00,91,116,72,19,96,38.7,Alert
-OBS-206,PAT-2004,2026-07-19T06:10:00+03:00,78,121,74,16,98,36.9,Alert
-OBS-207,PAT-2005,2026-07-19T06:20:00+03:00,84,114,71,18,97,37.2,Alert

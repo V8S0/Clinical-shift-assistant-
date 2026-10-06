@@ -1,6 +1,0 @@
-patient_id,display_name,age,ward,bed,admission_reason,allergies,care_notes
-PAT-2001,Patient A,64,Ward 2,2A,Post-operative observation,None recorded,Mobility assistance; fall precautions.
-PAT-2002,Patient B,72,Ward 2,2B,Shortness of breath under review,None recorded,Verify current oxygen order in approved system.
-PAT-2003,Patient C,45,Ward 2,2C,Skin infection under review,Penicillin,Allergy must be visible during handover.
-PAT-2004,Patient D,31,Ward 2,2D,Observation after minor procedure,None recorded,Routine observations.
-PAT-2005,Patient E,56,Ward 2,2E,Hydration monitoring,None recorded,Fluid balance task open; blood group not recorded in this dataset.
